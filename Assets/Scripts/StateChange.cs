@@ -7,6 +7,8 @@ using TMPro;
 
 public class StateChange : MonoBehaviour
 {
+    public static StateChange instance;
+
     public float timeForInfection;
     public float infectionInterval;
     public float infectionDuration;
@@ -28,22 +30,27 @@ public class StateChange : MonoBehaviour
 
     public List<GameObject> objectsToInfect;
 
-    Button startButton;
+    public Button startButton;
     public Button restartButton;
 
     int numberOfInfections = 0;
 
     public bool gameIsActive = false;
 
-
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        startButton = GameObject.Find("Start Button").GetComponent<Button>();
-
-        startButton.onClick.AddListener(StartGame);
-        restartButton.onClick.AddListener(RestartGame);
-
         score = 0;
 
         ftime = 60;
@@ -160,7 +167,7 @@ public class StateChange : MonoBehaviour
 
     // Restart
 
-    void RestartGame()
+    public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

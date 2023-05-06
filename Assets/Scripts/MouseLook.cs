@@ -15,7 +15,7 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stateChange = GameObject.Find("State Changer").GetComponent<StateChange>();
+        stateChange = StateChange.instance;
     }
 
     // Update is called once per frame

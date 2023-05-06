@@ -7,7 +7,7 @@ public class GameStarter : MonoBehaviour
     StateChange stateChange;
     void Start()
     {
-        stateChange = GameObject.Find("State Changer").GetComponent<StateChange>();
+        stateChange = StateChange.instance;
     }
     public void StartGame()
     {
