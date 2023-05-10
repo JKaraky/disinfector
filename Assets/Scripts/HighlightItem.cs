@@ -6,6 +6,7 @@ public class HighlightItem : MonoBehaviour
 {
     private Color startcolor;
     private MeshRenderer objectRenderer;
+    public bool shouldHighlight = true;
 
     private void Start()
     {
@@ -13,8 +14,11 @@ public class HighlightItem : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        startcolor = objectRenderer.material.color;
-        objectRenderer.material.color = Color.red;
+        if (shouldHighlight)
+        {
+            startcolor = objectRenderer.material.color;
+            objectRenderer.material.color = Color.red;
+        }
     }
     void OnMouseExit()
     {

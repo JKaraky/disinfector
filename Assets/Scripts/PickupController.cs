@@ -14,11 +14,13 @@ public class PickupController : MonoBehaviour
 
     Rigidbody pickedItemRB;
 
+    HighlightItem highlightItemScript;
+
     float spherecastRadius = 0.1f;
     float maxDistance = 10.0f;
     float pickupForce = 150.0f;
     float throwForce = 600.0f;
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -46,8 +48,10 @@ public class PickupController : MonoBehaviour
 
     void Pickup (GameObject pickedObj)
     {
+        highlightItemScript = pickedObj.GetComponent<HighlightItem>();
+        highlightItemScript.shouldHighlight = false;
         pickedItem = pickedObj;
-        pickedItem.transform.parent = holdArea;
+        pickedItem.transform.position = holdArea.transform.position;
         pickedItemRB = pickedObj.GetComponent<Rigidbody>();
         pickedItemRB.useGravity = false;
         pickedItemRB.drag = 10;
@@ -56,11 +60,12 @@ public class PickupController : MonoBehaviour
 
     void Drop()
     {
+        highlightItemScript.shouldHighlight = true;
+        highlightItemScript = null;
         pickedItemRB.AddForce(mainCamera.transform.forward * throwForce);
         pickedItemRB.useGravity = true;
         pickedItemRB.drag = 1;
         pickedItemRB.constraints = RigidbodyConstraints.None;
-        pickedItem.transform.parent = null;
         pickedItem = null;
     }
 
