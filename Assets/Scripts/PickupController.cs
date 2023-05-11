@@ -16,6 +16,8 @@ public class PickupController : MonoBehaviour
 
     HighlightItem highlightItemScript;
 
+    Collider objectCollider;
+
     float spherecastRadius = 0.1f;
     float maxDistance = 10.0f;
     float pickupForce = 150.0f;
@@ -49,6 +51,8 @@ public class PickupController : MonoBehaviour
     void Pickup (GameObject pickedObj)
     {
         highlightItemScript = pickedObj.GetComponent<HighlightItem>();
+        objectCollider = pickedObj.GetComponent<Collider>();
+        objectCollider.enabled = false;
         highlightItemScript.shouldHighlight = false;
         pickedItem = pickedObj;
         pickedItem.transform.position = holdArea.transform.position;
@@ -60,8 +64,10 @@ public class PickupController : MonoBehaviour
 
     void Drop()
     {
+        objectCollider.enabled = true;
         highlightItemScript.shouldHighlight = true;
         highlightItemScript = null;
+        objectCollider = null;
         pickedItemRB.AddForce(mainCamera.transform.forward * throwForce);
         pickedItemRB.useGravity = true;
         pickedItemRB.drag = 1;
