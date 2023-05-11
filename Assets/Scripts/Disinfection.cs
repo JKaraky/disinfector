@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Disinfection : MonoBehaviour
 {
-    StateChange stateChange;
+    // Commented out because system is not used anymore
+
+    /*StateChange stateChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,5 @@ public class Disinfection : MonoBehaviour
 
             stateChange.score++;
         }
-    }
+    }*/
 }

@@ -9,9 +9,9 @@ public class StateChange : MonoBehaviour
 {
     public static StateChange instance;
 
-    public float timeForInfection;
-    public float infectionInterval;
-    public float infectionDuration;
+    //public float timeForInfection;
+    //public float infectionInterval;
+    //public float infectionDuration;
     public float score;
     public float ftime;
     public int iTime;
@@ -20,20 +20,20 @@ public class StateChange : MonoBehaviour
     public GameObject endScreen;
     public GameObject gameUI;
 
-    public Material hittableMaterial;
-    public Material normalMaterial;
+    //public Material hittableMaterial;
+    //public Material normalMaterial;
 
-    public TextMeshProUGUI infectedDevices;
+    //public TextMeshProUGUI infectedDevices;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI endScore;
 
-    public List<GameObject> objectsToInfect;
+    //public List<GameObject> objectsToInfect;
 
     public Button startButton;
     public Button restartButton;
 
-    int numberOfInfections = 0;
+    //int numberOfInfections = 0;
 
     public bool gameIsActive = false;
 
@@ -59,19 +59,21 @@ public class StateChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ftime > 0 && gameIsActive)
+        /* (Commented out because system is not used anymore)
+          
+         if(ftime > 0 && gameIsActive)
         {
             // Infect a machine every time the infection interval elapses
 
             if (Time.time > timeForInfection)
             {
-                InfectNewObject();
+                //InfectNewObject();
 
                 timeForInfection = Time.time + infectionInterval;
             }
-        }
+        }*/
 
-        if(gameIsActive)
+        if (gameIsActive)
         {
             // Keeping track of time
 
@@ -83,10 +85,10 @@ public class StateChange : MonoBehaviour
 
             timeText.text = "Time: " + iTime;
 
-            infectedDevices.text = "Infected Devices:" + numberOfInfections;
+            //infectedDevices.text = "Infected Devices:" + numberOfInfections; (Commented out because system is not used anymore)
         }
 
-        if(ftime == 0)
+        if (ftime == 0)
         {
             gameIsActive = false;
 
@@ -98,8 +100,8 @@ public class StateChange : MonoBehaviour
         }
     }
 
-    // Procedure of infection
-    void InfectNewObject()
+    // Procedure of infection (Commented out because system is not used anymore)
+    /*void InfectNewObject()
     {
         // Get a random game object from the list
 
@@ -109,7 +111,7 @@ public class StateChange : MonoBehaviour
 
         // Get its mesh renderer
 
-        MeshRenderer meshRenderer = GameObject.Find(objectToInfect.name).GetComponent<MeshRenderer>();
+        //MeshRenderer meshRenderer = GameObject.Find(objectToInfect.name).GetComponent<MeshRenderer>();
 
         // recall the method if object is already infected, else infect object
 
@@ -133,7 +135,7 @@ public class StateChange : MonoBehaviour
             meshRenderer.material = normalMaterial;
             numberOfInfections--;
         }
-    }
+    }*/
 
     // Timer settings
 

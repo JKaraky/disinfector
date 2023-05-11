@@ -20,7 +20,5 @@ public class GameStarter : MonoBehaviour
         stateChange.startMenu.gameObject.SetActive(false);
 
         stateChange.gameUI.gameObject.SetActive(true);
-
-        Debug.Log("I was clicked");
     }
 }
