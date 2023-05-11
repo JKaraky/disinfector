@@ -10130,9 +10130,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Look, there isn''t much time to explain. The electronics in the server
-    room will start emitting white light instead of blue. Throw anything at them
-    to fix them: keyboard, cup, mouse, pencil, ANYTHING.'
+  m_text: 'You will find that there are hoops popping out in the server room. Please
+    do not question their origin. All you have to do is throw items through them:
+    Keyboard, pencil, mousepad, anything you can carry. Tell us when you are done.
+
+    Sincerely,
+
+    Management'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87922fd7913c9a34aaf688de01a97a99, type: 2}
   m_sharedMaterial: {fileID: 390613039009635176, guid: 87922fd7913c9a34aaf688de01a97a99, type: 2}
