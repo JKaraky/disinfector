@@ -11,13 +11,13 @@ public class HoopCollision : MonoBehaviour
     public List<Transform> transforms = new List<Transform>();
 
     public AudioClip scoresound;
-    AudioSource audio;
+    AudioSource audioSource;
 
     Transform newTrans;
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         stateChange = StateChange.instance;
 
         newTrans = transforms[Random.Range(0, transforms.Count)];
@@ -36,7 +36,7 @@ public class HoopCollision : MonoBehaviour
         if (other.gameObject.layer == 6) //Layer 6 is Pickable
         {
             stateChange.score++;
-            audio.PlayOneShot(scoresound, 1f);
+            audioSource.PlayOneShot(scoresound, 1f);
 
             newTrans = transforms[Random.Range(0, transforms.Count)];
             // If the random transform picked is the same as the previous, get another random one
